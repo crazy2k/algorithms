@@ -5,12 +5,12 @@ from graph import Graph, Vertex
 WHITE = 0
 GRAY = 1
 BLACK = 2
-INFINIT = 9999
+INFINITY = 9999
 
 def bfs(g, s):
     for u in g.vertices:
         u.color = WHITE
-        u.d = INFINIT
+        u.d = INFINITY
         u.pred = None
 
     s.color = GRAY

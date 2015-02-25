@@ -55,3 +55,11 @@
   * Insert is `O(1)`. Delete can be `O(1)` if list is doubly-linked. Search is
     `O(n)` in the worst case but it can be `O(1)` in average if using simple
     uniform hashing (any element can fall into any slot with same probability)
+
+## Universal hashing
+
+* Problem: Any fixed hash function can be abused so that search performs as
+  bad as `O(n)` by simply choosing keys whose hashed value is the same.
+* Solution: Choose a hashing function randomly such that the probability of a
+  collision is no more than `1/m`. This will give good average case
+  performance for search no matter what keys the attacker picks.

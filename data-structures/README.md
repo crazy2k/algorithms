@@ -17,7 +17,7 @@
 # Direct-address tables
 
 * Simple way to implement a dynamic set
-* **Idea**: Table `T` has size `N`. `T[k]` points to element whose key is `k`,
+* **Idea**: Table `T` has size `n`. `T[k]` points to element whose key is `k`,
   or is marked `None` if there's no such element in the dynamic set.
 * Dictionary algorithms:
 
@@ -30,4 +30,12 @@
         def delete(T, x):
             T[x.key] = None
 
-* The three are `O(1)` if the table is an array.
+** The three are `O(1)` if the table is an array.
+
+# Hash tables
+
+* **Idea**: Table `T` has size `n`. The element whose key is `k`, if it is in
+  the dynamic set, can be found in `T[h(k)]`, where `h()` is a hashing
+  function.
+* Problem: Different elements can have the same hash value (collision).
+* Solution: Collision resolution by chaining.

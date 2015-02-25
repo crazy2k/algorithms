@@ -16,5 +16,18 @@ following:
 
 # Direct-address tables
 
+The table `T` has size `N`. Element whose key is `k` is pointed by `T[k]`.
+If there's no element for a key, it's marked `None`.
 
+Dictionary algorithms:
 
+    def search(T, k):
+        return T[k]
+
+    def insert(T, x):
+        T[x.key] = x
+
+    def delete(T, x):
+        T[x.key] = None
+
+The three algorithms are `O(1)` if the table is an array.

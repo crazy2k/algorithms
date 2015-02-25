@@ -21,13 +21,13 @@
   or is marked `None` if there's no such element in the dynamic set.
 * Dictionary algorithms:
 
-    def search(T, k):
-        return T[k]
+        def search(T, k):
+            return T[k]
 
-    def insert(T, x):
-        T[x.key] = x
+        def insert(T, x):
+            T[x.key] = x
 
-    def delete(T, x):
-        T[x.key] = None
+        def delete(T, x):
+            T[x.key] = None
 
 * The three are `O(1)` if the table is an array.

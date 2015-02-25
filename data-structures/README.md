@@ -1,11 +1,11 @@
-A dynamic set is the computational idea of a mathematical set. A dynamic set
-can change over time: Its elements can be changed, and elements can be added
-or deleted from it, so the size of the set can change too. Usually, every
-element in the dynamic set has an associated identifying key.
+# Dynamic set
 
-There are some interesting operations related to dynamic sets that, in some
-bibliography, are called "dictionary operations". These operations are the
-following:
+* The computational idea of a mathematical set.
+* Can change over time: Its elements can be changed, and elements can be added
+  or deleted from it, so the size of the set can change too.
+* Usually, every element in the dynamic set has an associated identifying key.
+
+## Dictionary operations
 
 * **Search**: Given a dynamic set `S` and a key `k`, retrieve the element
   whose key is `k`.
@@ -16,10 +16,10 @@ following:
 
 # Direct-address tables
 
-The table `T` has size `N`. Element whose key is `k` is pointed by `T[k]`.
-If there's no element for a key, it's marked `None`.
-
-Dictionary algorithms:
+* Simple way to implement a dynamic set
+* **Idea**: Table `T` has size `N`. `T[k]` points to element whose key is `k`,
+  or is marked `None` if there's no such element in the dynamic set.
+* Dictionary algorithms:
 
     def search(T, k):
         return T[k]
@@ -30,4 +30,4 @@ Dictionary algorithms:
     def delete(T, x):
         T[x.key] = None
 
-The three algorithms are `O(1)` if the table is an array.
+* The three are `O(1)` if the table is an array.

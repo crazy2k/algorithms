@@ -30,12 +30,28 @@
         def delete(T, x):
             T[x.key] = None
 
-** The three are `O(1)` if the table is an array.
+  * The three are `O(1)` if the table is an array.
 
 # Hash tables
 
-* **Idea**: Table `T` has size `n`. The element whose key is `k`, if it is in
+* **Idea**: Table `T` has size `m`. The element whose key is `k`, if it is in
   the dynamic set, can be found in `T[h(k)]`, where `h()` is a hashing
   function.
 * Problem: Different elements can have the same hash value (collision).
-* Solution: Collision resolution by chaining.
+  * Solution: Collision resolution by chaining. `T[h(k)]` is actually a
+    (preferably, doubly-linked) list with all the elements with the same
+    `h(k)`.
+* Dictionary algorithms:
+
+        def search(T, k):
+            traverse list T[h(x.key)] looking for element whose key is k
+
+        def insert(T, x):
+            insert x in the list T[h(x.key)]
+
+        def delete(T, x):
+            delete x from the list T[h(x.key)]
+ 
+  * Insert is `O(1)`. Delete can be `O(1)` if list is doubly-linked. Search is
+    `O(n)` in the worst case but it can be `O(1)` in average if using simple
+    uniform hashing (any element can fall into any slot with same probability)

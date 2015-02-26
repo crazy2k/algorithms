@@ -34,6 +34,8 @@
 
 # Hash tables
 
+## Chaining
+
 * **Idea**: Table `T` has size `m`. The element whose key is `k`, if it is in
   the dynamic set, can be found in `T[h(k)]`, where `h()` is a hashing
   function.
@@ -66,7 +68,7 @@
   collision is no more than `1/m`. This will give good average case
   performance for search no matter what keys the attacker picks.
 
-# Open addressing
+## Open addressing
 
 * **Idea**: When we want to insert an element whose key is `k`, we probe and
   try to find a place (look for `None`) for it in the sequence of slots
@@ -99,3 +101,9 @@
     and the load factor is maintained `n/m < c` for a constant `c < 1`, then
     the order is constant.
   * Insert is the same.
+
+## Perfect hashing
+
+* **Idea**: If keys are static (they never change), it is possible to perform
+  a search in `O(1)`. It can be done using two levels of hashing, with
+  universal hashing at each level.

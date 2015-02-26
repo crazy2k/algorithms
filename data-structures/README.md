@@ -52,9 +52,11 @@
         def delete(T, x):
             delete x from the list T[h(x.key)]
  
-  * Insert is `O(1)`. Delete can be `O(1)` if list is doubly-linked. Search is
-    `O(n)` in the worst case but it can be `O(1)` in average if using simple
-    uniform hashing (any element can fall into any slot with same probability)
+  * Insert is `O(1)`.
+  * Delete can be `O(1)` if list is doubly-linked.
+  * Search is `O(n)` in the worst case but it can be `O(1)` in average if
+    using simple uniform hashing (any element can fall into any slot with same
+    probability)
 
 ## Universal hashing
 
@@ -63,3 +65,37 @@
 * Solution: Choose a hashing function randomly such that the probability of a
   collision is no more than `1/m`. This will give good average case
   performance for search no matter what keys the attacker picks.
+
+# Open addressing
+
+* **Idea**: When we want to insert an element whose key is `k`, we probe and
+  try to find a place (look for `None`) for it in the sequence of slots
+  `(h(k, 0), h(k, 1), ..., h(k, m - 1))` (a permutation of the list of slots).
+  Search is similar.
+* Problem: Deletion is problematic, because marking slots as `Deleted` ruins
+  the fact that search depends solely on the load factor.
+  * Solution: Use chaining if the hash table should support deletion.
+
+* Dictionary algorithms:
+
+        def search(T, k):
+            for i in range(m):
+                j = h(k, i)
+                if T[j] == None:
+                    return None
+                if T[j].key == k:
+                    return T[j]
+            return None
+
+        def insert(T, x):
+            for i in range(m):
+                j = h(k, i)
+                if T[j] == None:
+                    T[j] = x
+                    return j
+            raise Exception("No more space")
+
+  * Search order depends on the load factor `n/m`. If uniform hashing is used
+    and the load factor is maintained `n/m < c` for a constant `c < 1`, then
+    the order is constant.
+  * Insert is the same.

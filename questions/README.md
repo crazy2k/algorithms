@@ -14,8 +14,8 @@ described. When one of the pointers reach the end of its associated list, the
 remaining elements in the other list are appended to the third list. Finally,
 the merged list is returned.
 
-An implementation can be found in the file `merge_linked_lists.py` in this
-directory.
+Implementations can be found in `merge_linked_lists.py` (Python) and in the
+`merge_linked_lists_java/` directory (Java).
 
 # Miscellaneous
 

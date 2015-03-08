@@ -1,15 +1,27 @@
-def longest_common_subsequence(a, n, b, m):
-    if n == 0 or m == 0:
-        return []
-    if a[n - 1] == b[m - 1]:
-        return longest_common_subsequence(a, n - 1, b, m - 1) + [a[n - 1]]
-    l = longest_common_subsequence(a, n, b, m - 1)
-    r = longest_common_subsequence(a, n - 1, b, m)
-    return l if len(l) > len(r) else r
+def longest_common_subsequence(a, b):
+    n = len(a)
+    m = len(b)
+    dp = [[[] for x in range(m + 1)] for y in range(n + 1)]
+    for misum in range(n + m + 1):
+        xmax = min(misum, n)
+        for x in range(xmax + 1):
+            y = misum - x
+            if y > m:
+                continue
 
+            if x == 0 or y == 0:
+                dp[x][y] = []
+            elif a[x - 1] == b[y - 1]:
+                dp[x][y] = dp[x - 1][y - 1] + [a[x - 1]]
+            else:
+                l = dp[x - 1][y]
+                r = dp[x][y - 1]
+                dp[x][y] = l if len(l) > len(r) else r
+    return dp[n][m]
 
 if __name__ == '__main__':
     n, m = [int(x) for x in raw_input().split()]
     a = [int(x) for x in raw_input().split()]
     b = [int(x) for x in raw_input().split()]
-    print longest_common_subsequence(a, len(a), b, len(b))
+    lcs = " ".join([str(x) for x in longest_common_subsequence(a, b)])
+    print lcs

@@ -10,18 +10,27 @@
   element is appended to the newly-created list and the first pointer is
   advanced to the second element in the list it's pointing to. The case when the
   lower element is pointed by the second pointer is analogous to the case just
-  described. When one of the pointers reach the end of its associated list, the
-  remaining elements in the other list are appended to the third list. Finally,
-  the merged list is returned.
+  described.
+  
+  When one of the pointers reach the end of its associated list, the remaining
+  elements in the other list are appended to the third list. Finally, the
+  merged list is returned.
 
   Implementations can be found in `merge_linked_lists.py` (Python) and in the
   `merge_linked_lists_java/` directory (Java).
 
+
+# Math
+
+* *Write a function `print_rational(n, m)` that returns a string with the
+  rational number resulting of dividing integer `n` over integer `m`. Also, in
+  cases where a string of digits repeats itself in the result, find a way to
+  stop the algorithm and show the repeating sequence; for example:
+  `print_rational(12, 99)` could return `0,(12)`
+
 # Miscellaneous
 
-## URL shortener
-
-* **Question**: How would you implement a URL shortener?
+* *How would you implement a URL shortener?*
 
 # Trees
 

@@ -3,7 +3,7 @@
 def is_unique(s):
     seen = set()
     for x in s:
-        if x in s:
+        if x in seen:
             return False
         seen.add(x)
     return True

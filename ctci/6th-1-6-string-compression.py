@@ -3,6 +3,9 @@ from collections import Counter
 
 
 def compress(s):
+    if len(s) == 0:
+        return ''
+
     l = []
     last = s[0]
     count = 1
